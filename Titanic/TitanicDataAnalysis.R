@@ -30,7 +30,7 @@ mrses[1:5,]
 males  <- data.combined[which(train$Sex == "male"),]
 males[1:5,]
 
-data.combined <- data.frame(Survived = rep("None", nrow(data.combined)), data.combined[,])
+#data.combined <- data.frame(Survived = rep("None", nrow(data.combined)), data.combined[,])
 
 extractTitle <- function(name){
     if(length(grep("Miss.", name))>0){
@@ -59,3 +59,23 @@ ggplot(data.combined[1:891,], aes(x = title, fill = factor(Survived))) +
   xlab("Title") +
   ylab("Total Count") +
   labs(fill="~Survived")
+
+table(data.combined$Sex)
+table(data.combined$Survived)
+
+#Survival Graph Based on Gender.
+ggplot(data.combined[1:891,], aes(x = Age, fill = factor(Survived))) +
+  geom_histogram() +
+  facet_wrap(~Sex + Pclass)+
+  ggtitle("Pclass" )+
+  xlab("Title") +
+  ylab("Total Count") +
+  labs(fill="~Survived")
+
+boys <- data.combined[which(data.combined$title == "Master."),]
+summary(misses)
+
+misses.alone <- misses[which(misses$SibSp ==0 & misses$Parch == 0),]
+summary(misses.alone$Age)
+#Number of Womens travelling age les than 14.5 is 4
+length(which(misses.alone$Age <= 14.5))
