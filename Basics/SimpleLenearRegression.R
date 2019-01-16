@@ -38,8 +38,7 @@ head(mean$Y - newData$Y)
 square<-(mean$Y - newData$Y)^2
 sum(square) #8303.877 Called Residual
 #Find the best fitting line which minimize the Residual
-#R Leniar Model Method.
-
+#R Leniar Model Method. Example - https://www.mathsisfun.com/data/least-squares-regression.html
 lm(Y~X,data=newData)
 #Coefficients:
 #   (Intercept)     X  
