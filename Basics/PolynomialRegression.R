@@ -83,7 +83,7 @@ sum((dat$y - line3$y)^2)
 ###   LENIAR Modeling with Smoothing Spline    ######
 #####################################################
 library(splines)
-fit <- smooth.spline(dat$x, dat$y, df=30) #decrease freedom higher sharp curve
+fit <- smooth.spline(dat$x, dat$y, df=5) #decrease freedom higher sharp curve
 #Change the df =50 higher or lower to get the different results
 f4<-function(X){
   return(predict(fit,X))
